@@ -1,11 +1,22 @@
+# Created by: bms9294
+#
+#TravisCI Config
+# Will run the python file runall.py in the "tests" folder and hope for a 0 exit code.
+# Extra scripts can be added, but make sure all python dependency packages are listed 
+# in tests/requirements.txt otherwise, the build will most likely fail.
+# 
 language: python
+
+#Versions to test on.
 python:
   - "3.5"
   - "3.7"
   
+#Install required packages.
 cache: pip
 install:
   - pip install -r tests/requirements.txt
 
+#Test scripts to run
 script:
   - python tests/runall.py
