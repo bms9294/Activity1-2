@@ -6,7 +6,7 @@
 # in tests/requirements.txt otherwise, the build will most likely fail.
 # 
 language: python
-
+dist: xenial
 #Specify docker images are being used
 services:
   - docker
