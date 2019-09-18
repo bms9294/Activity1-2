@@ -27,4 +27,4 @@ install:
 
 #Test scripts to run
 script:
-  - pytest tests/
+  - pytest
