@@ -27,4 +27,4 @@ install:
 
 #Test scripts to run
 script:
-  - python tests/runall.py
+  - pytest tests/
