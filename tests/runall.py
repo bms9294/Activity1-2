@@ -16,6 +16,7 @@
 
 #Testing Platform
 import pytest;
+import sys;
 
 #Funtions to test the Hello World Apache webserver.
 import helloworldapache_test;
@@ -48,4 +49,4 @@ print("Exit: "+str(FAILED));
 if FAILED == 0:
     print("All tests Successful!");
 # If all tests pass then FAILED should still be 0, meaning a clean exit.
-exit(FAILED);
+sys.exit(FAILED);
