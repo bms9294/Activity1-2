@@ -1,0 +1,18 @@
+containers:
+	group15-apache-heloworld:
+		Service: Apache2(httpd)
+		Purpose: Basic web page displaying "Hello World"
+		IP: DHCP
+		Port: 8080
+
+	group15-mysql-auth:
+		Service: MySQL
+		Purpose: Provide user and session storage.
+		IP: DHCP
+		Port: 3306
+
+	group15-apache-front:
+		Service: Apache2(httpd)
+		Purpose: Front-end for user interaction, login, and possibly registration.
+		IP: DHCP
+		Port:80 and 443
