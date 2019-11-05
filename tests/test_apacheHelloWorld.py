@@ -28,9 +28,4 @@ def test_Header():
 # Make sure the page is displaying the correct content.
 def test_Content():
     #print(page.text);
-    assert "Single Row,\
-    id: 3\
-    name: jerry\
-    birthday: 2019-11-05\
-    " in page.text;
-        
+    assert "Single Row, <br />id: 3<br />name: jerry<br />birthday: 2019-11-05<br />" in page.text;
