@@ -23,10 +23,14 @@ def test_Code():
 # Make sure the content of the site is HTML
 def test_Header():
     #print(page.headers)
-    assert page.headers['content-type'] == 'text/html';
+    assert 'text/html' in page.headers['content-type'];
 
 # Make sure the page is displaying the correct content.
 def test_Content():
     #print(page.text);
-    assert "<h2>Hello World</h2>" in page.text;
+    assert "Single Row,\
+    id: 3\
+    name: jerry\
+    birthday: 2019-11-05\
+    " in page.text;
         
