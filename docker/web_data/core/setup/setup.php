@@ -28,11 +28,14 @@ try{
 		$mysql->withArray("tables/".$t.".php");
 		$mysql->prepare("create");
 		$mysql->exec();
+		echo "{$t}: true<br />";
 	}
 }catch(\PDOException $e){
 	if($e->getCode() == 1049){//Error code for the default database not existsing. Set in the config.php for mysql.
 		$mysql->connect("");//Connect without a database.
 		$mysql->createDB();//Create the database specified in the config.
+	}else{
+		echo "false";
 	}
 	
 }
