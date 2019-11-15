@@ -8,7 +8,7 @@ import requests;
 
 #The testing class for the HelloWorld WebServer
 #Address and port of the WebSite
-ADDRESS = "http://localhost:80";
+ADDRESS = "http://localhost:80/core/setup/setup.php";
 
 try:
     page = requests.get(ADDRESS,timeout=0.5);
@@ -28,4 +28,4 @@ def test_Header():
 # Make sure the page is displaying the correct content.
 def test_Content():
     #print(page.text);
-    assert "Single Row, <br />id: 3<br />name: jerry<br />birthday: 2019-11-05<br />" in page.text;
+    assert "testTable: true<br />users: true<br />" in page.text;
