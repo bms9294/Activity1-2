@@ -5,7 +5,7 @@
 //
 return array(
 	//Connection Arguments
-	'host' => 'mysql_web',
+	'host' => 'videos4u_mysql',
 	'username' => 'videos4u',
 	'password' => 'olah6aeQuie7Oishol4Eej6oofee3aeg',
 	

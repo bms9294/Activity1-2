@@ -1,20 +1,31 @@
 version: '3'
 
 services:
-  apache_web:
-    container_name: apache_web
+  videos4u_nginx:
+    container_name: videos4u_nginx
     build:
-      context: ./apache/
+      context: ./nginx/
       dockerfile: ./Dockerfile
-    command: apache2ctl -DFOREGROUND
     ports:
     - "80:80"
     - "443:443"
     volumes:
-      - ./web_data:/home/web_data
+      - /docker/web_data:/var/www/html
+      
+  # videos4u_apache:
+    # container_name: videos4u_apache
+    # build:
+      # context: ./apache/
+      # dockerfile: ./Dockerfile
+    # command: apache2ctl -DFOREGROUND
+    # ports:
+    # - "80:80"
+    # - "443:443"
+    # volumes:
+      # - ./web_data:/home/web_data
    
-  mysql_web:
-    container_name: mysql_web
+  videos4u_mysql:
+    container_name: videos4u_mysql
     command: --default-authentication-plugin=mysql_native_password
     build:
       context: ./mysql/
