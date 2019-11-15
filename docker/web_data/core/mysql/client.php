@@ -101,7 +101,7 @@ class MySqlClient {
 		$charset = ($this->conf)['charset'];
 		$user = ($this->conf)['username'];
 		$pass = ($this->conf)['password'];
-		$dsn = "mysql:host=$host";
+		$dsn = "mysql:host={$host};port=3306";
 		
 		if($dbname === false){
 			$dsn .= ";dbname={$db};";
