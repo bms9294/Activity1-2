@@ -6,7 +6,7 @@
 # in tests/requirements.txt otherwise, the build will most likely fail.
 # 
 language: python
-dist: xenial
+dist: trusty
 #Specify docker images are being used
 services:
   - docker
@@ -18,7 +18,6 @@ before_install:
 #Versions to test on.
 python:
   - "3.5"
-  - "3.7"
   
 #Install required packages.
 cache: pip
