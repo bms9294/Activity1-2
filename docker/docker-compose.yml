@@ -37,5 +37,5 @@ services:
       MYSQL_PASSWORD: olah6aeQuie7Oishol4Eej6oofee3aeg
       MYSQL_DATABASE: videos4u_web
     ports:
-    - "3306:3306"
+    - "33060:3306"
      

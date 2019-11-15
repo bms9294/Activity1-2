@@ -3,7 +3,7 @@ import pytest;
 
 def mysql_connect():
     conn=pymysql.connect(host='127.0.0.1',
-                         port=3306,
+                         port=33060,
                          user='root',
                          password='cBc9029U',
                          database='videos4u_web');
