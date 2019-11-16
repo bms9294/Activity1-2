@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="./core/jquery/jquery.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>videos4u - Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="login.css" />
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+<body>
+    <img src="https://images.pexels.com/photos/34407/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="bg" />
+    <section class="hero is-fullheight">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-centered">
+                    <!-- Login Page -->
+                    <div class="box column is-one-quarter">
+                        <!-- Logo & Title -->
+                        <!-- <div class="card-header-icon">
+                          <img src={logo} alt="logo" />
+                        </div> -->
+                        <h1 class="title has-text-centered">
+                            Videos4u
+                        </h1>
+                        <!-- Form -->
+                        <div class="card-content">
+                            <!-- Username -->
+                            <div class="field" id="login">
+                                <div class="field">
+                                    <div class="control has-icons-left">
+                                        <input class="input"
+                                               type="email"
+                                               id="username" 
+                                               name="username"
+                                               placeholder="Username or Email" />
+                                        <span class="icon is-small is-left">
+                                            <img class="fas fa-user" />
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Password -->
+                                <div class="field">
+                                    <div class="control has-icons-left">
+                                        <input class="input"
+                                               type="password"
+                                               name="password"
+                                               id="password" 
+                                               placeholder="Password" />
+                                        <span class="icon is-small is-left">
+                                            <img class="fas fa-lock" />
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Log In button -->
+                                <div class="field">
+                                    <div class="control">
+                                        <button id="submitform" class="button is-primary is-medium is-fullwidth has-text-weight-bold">
+                                            Sign In
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript" src="./core/login/login.js" ></script>
+</body>
+</html>
