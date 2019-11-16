@@ -23,7 +23,10 @@ python:
 cache: pip
 install:
   - pip install -r tests/requirements.txt
-
+  
+#Wait for images to finish spining up.
+before_script:
+    - sleep 10
 #Test scripts to run
 script:
   - pytest
