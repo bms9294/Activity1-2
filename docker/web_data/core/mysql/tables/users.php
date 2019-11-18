@@ -11,6 +11,7 @@ return array(
 		PRIMARY KEY(userid))",
 	"addUser" => "INSERT INTO users VALUES(?,?,?,?,?,?,?)",
 	"getHash" => "SELECT passhash FROM users WHERE email=? OR username=?",
+	"getUser" => "SELECT userid FROM users WHERE email=? OR username=?",
 	"idFromEmail" => "SELECT userid FROM users WHERE email=?",
 	"idFromUsername" => "SELECT userid FROM users WHERE username=?"
 );
