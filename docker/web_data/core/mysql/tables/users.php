@@ -1,10 +1,10 @@
 <?php
 return array(
 	"create" => "CREATE TABLE IF NOT EXISTS users(
-		userid INT AUTO_INCREMENT,
-		username VARCHAR(64) NOT NULL,
+		userid CHAR(32) UNIQUE NOT NULL,
+		username VARCHAR(64) UNIQUE NOT NULL,
 		passhash VARCHAR(90) NOT NULL,
-		email VARCHAR(255),
+		email VARCHAR(255) UNIQUE,
 		firstname VARCHAR(64),
 		surname VARCHAR(64),
 		registered INT NOT NULL,

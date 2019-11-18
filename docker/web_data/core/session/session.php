@@ -10,6 +10,10 @@ function gen_uuid() {
         mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff )
     );
 }
+function auth(){
+	return challengeSession();
+}
+
 function newSession($userid){
 	$mysql = new MySqlClient("tables/session.php");
 	try{
@@ -30,7 +34,7 @@ function newSession($userid){
 function challengeSession($user=false){
 	if($user == false){
 		if(!isset($_COOKIE['session'])){
-			return false;
+			return '{"success": false, "message": "No active Session!"}';
 		}else{
 			$token = $_COOKIE['session'];
 			$mysql = new MySqlClient("tables/session.php");
@@ -39,9 +43,19 @@ function challengeSession($user=false){
 				$mysql->prepare("getSession");
 				$row = ($mysql->exec([$token]))->fetch();
 				if($row){
-					return $row['lastSeen'];
+					$last = $row['lastSeen'];
+					if(($last+(60*60*4)) > time()){
+						$mysql->prepare("refresh");
+						$mysql->exec([(time()+(60*60*4)),$token]);
+						return '{"success": true}';
+					}else{
+						$mysql->prepare("expired");
+						$mysql->exec([$token]);
+						$_COOKIE['session'] = "";
+						return '{"success": false, "message": "Session Expired."}';
+					}
 				}else{
-					return false;
+					return '{"success": false, "message": "No active Session!"}';
 				}
 			}catch(\PDOException $e){
 				return $e->getMessage();

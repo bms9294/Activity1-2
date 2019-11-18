@@ -1,19 +1,20 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-include("../mysql/client.php");
-$user = array(
-	NULL
-);
-
-
-
+include_once("../mysql/client.php");
+$user = array();
+function gen_uuid() {
+    return sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
+        mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ),
+        mt_rand( 0, 0xffff ),
+        mt_rand( 0, 0x0fff ) | 0x4000,
+        mt_rand( 0, 0x3fff ) | 0x8000,
+        mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff )
+    );
+}
+array_push($user,str_replace("-","",gen_uuid()));
 checkValue($_POST["username"],"username");
 switch ($_POST["password"]) {
 		case "":
-			http_response_code(400);
-			echo "Empty password.";
+			echo '{"success":false, "message": "Empty Password!"';
 			break;
 		
 		case !(""):
@@ -21,8 +22,7 @@ switch ($_POST["password"]) {
 			break;
 
 		default:
-			http_response_code(500);
-			echo "Cannot handle request.";
+			echo '{"success": false, "message": "Cannot handle request."}';
 			break;
 }
 checkValue($_POST["email"],"email");
@@ -33,8 +33,7 @@ function checkValue($val,$desc,$checkdupe=false){
 	global $user;
 	switch ($val) {
 		case "":
-			http_response_code(400);
-			echo "Empty {$desc}.";
+			echo '{"success":false, "message": "Empty '.$desc.'"';
 			break;
 		
 		case !(""):
@@ -42,8 +41,7 @@ function checkValue($val,$desc,$checkdupe=false){
 			break;
 
 		default:
-			http_response_code(500);
-			echo "Cannot handle request.";
+			echo '{"success": false, "message": "Cannot handle request."}';
 			break;
 	}
 }
@@ -55,7 +53,21 @@ $mysql = new MySqlClient("tables/users.php");
 try{
 	$mysql->connect();
 	$mysql->prepare("addUser");
-	$mysql->exec($user);
+	if($mysql->exec($user)){
+		echo '{"success": true}';
+	}
 }catch(\PDOException $e){
-	echo $e;
+	if($e->getCode() == 1062){
+	$mysql = new MySqlClient("tables/users.php");
+	$user[0] = str_replace("-","",gen_uuid());
+		try{
+			$mysql->connect();
+			$mysql->prepare("addUser");
+			if($mysql->exec($user)){
+				echo '{"success": true}';
+			}
+		}catch(\PDOException $e){
+			echo '{"success": false, "message": "Database Error."}';
+		}
+		}
 }
