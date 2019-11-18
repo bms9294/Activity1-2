@@ -28,4 +28,4 @@ def test_Header():
 # Make sure the page is displaying the correct content.
 def test_Content():
     #print(page.text);
-    assert "testTable: true<br />users: true<br />" in page.text;
+    assert "testTable: true<br />session: true<br />users: true<br />" in page.text;
