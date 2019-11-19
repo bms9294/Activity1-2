@@ -11,6 +11,7 @@ services:
     - "443:443"
     volumes:
       - ./web_data:/var/www/html
+      - ./cert:/var/www/ssl
       
   # videos4u_apache:
     # container_name: videos4u_apache
