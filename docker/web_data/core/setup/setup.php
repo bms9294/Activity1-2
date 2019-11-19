@@ -41,3 +41,14 @@ try{
 	
 }
 
+/*
+<?php
+if(!isset($_POST["database"]) ||
+	!isset($_POST["mysqluser"]) ||
+	!isset($_POST["mysqlpass"]) ||
+	!isset($_POST["datapath"])){
+		echo '{"success": false, "message": "Missing Value!"}';
+		return;
+}
+echo "test";
+*/
