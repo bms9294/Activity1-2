@@ -28,5 +28,7 @@ else
     -keyout /var/www/ssl/videos4u.key  -out /var/www/ssl/videos4u.crt
 fi
 
-
+if test -f "/var/www/index.php";then
+    mv /var/www/index.php /var/www/html/index.php
+fi
 /./usr/bin/supervisord -n

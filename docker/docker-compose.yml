@@ -12,19 +12,8 @@ services:
     volumes:
       - ./web_data:/var/www/html
       - ./cert:/var/www/ssl
-      
-  # videos4u_apache:
-    # container_name: videos4u_apache
-    # build:
-      # context: ./apache/
-      # dockerfile: ./Dockerfile
-    # command: apache2ctl -DFOREGROUND
-    # ports:
-    # - "80:80"
-    # - "443:443"
-    # volumes:
-      # - ./web_data:/home/web_data
-   
+      - ./data:/var/www/html/video
+
   videos4u_mysql:
     container_name: videos4u_mysql
     command: --default-authentication-plugin=mysql_native_password
@@ -32,11 +21,9 @@ services:
       context: ./mysql/
       dockerfile: ./Dockerfile
     environment:
-      MYSQL_ROOT_PASSWORD: cBc9029U
-      MYSQL_ONE_TIME_PASSWORD: cBc9029U
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
       MYSQL_USER: videos4u
       MYSQL_PASSWORD: olah6aeQuie7Oishol4Eej6oofee3aeg
-      MYSQL_DATABASE: videos4u_web
     ports:
     - "33060:3306"
      

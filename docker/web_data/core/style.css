@@ -1,28 +1,51 @@
 html{
-    background-color:rgb(32,32,32);
+    background-color:rgb(40,40,40);
     color:rgb(200,200,200);
+    margin:0;
+    overflow-x: hidden;
+    font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+body{
+    margin:0;
 }
 .content{
     text-align: center;
+    width: 100%;
+    margin:0;
 }
 .videoentry{
-    text-align: left;
     height:auto;
-    width:auto;
+    width:300px;
     min-width: 300px;
-    background-color: deepskyblue;
+    background-color: rgb(100, 0, 0);
     border-radius: 10px;
     padding: 10px;
     display: inline-block;
     margin: 15px;
+    text-decoration: none;
+    
 }
 .description{
     display: block;
     color: black;
 }
-.videoentry hr{
+.videoentry h2{
     margin: 5px;
-    border:1px solid black;
+    color: rgb(200,200,200);;
+    max-width: 300px;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.videoentry p{
+    max-height: 20px;
+    max-width: 300px;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    margin:0;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    color: rgb(165,165,165);
 }
 .thumbnailcont{
     margin-top: 15px;
@@ -34,12 +57,81 @@ html{
 }
 .thumbnail{
     object-fit: scale-down;
+    max-width: 300px;;
     max-height: 200px;;
+    height: 200px;
+    border-radius: 10px;
+    background-color: black;
+    color: black;
 }
 .player{
+    display: inline-block;
     text-align: center;
-    width:100%;
+    width:auto;
+    border-radius: 10px;
 }
 .mainvid{
-    max-height:200px;
+    width: 100%;
+    max-height:calc((( (100vw - 10px) * 8) / 17) - 5px);
+    border-radius: 10px;
+}
+.backdrop{
+    padding-top: 1px;
+    padding-bottom: 1px;
+    width:100%;
+    background-color: rgb(25,25,25);
+    margin:0;
+}
+.navbar{
+    padding:5px;
+    width:100%;
+    height:40px;
+    display: inline-block;
+    vertical-align: default;
+}
+.navbar h1{
+    text-decoration: none;
+    text-emphasis: none;
+    color: rgb(200,200,200);
+    display: inline-block;
+    font-size: 28px;
+    margin:1px;
+}
+.navbar .menu{
+    display: inline-block;
+    margin-left: 25px;
+}
+.navbar a{
+    display: inline-block;
+    text-emphasis: none;
+    text-decoration: none;
+    color:rgb(200,200,200);
+    font-size: 18px;
+}
+.right{
+    float:right;
+    margin-right: 20px;
+    margin-top: 2px;
+}
+.left{
+    float: left;
+    
+    
+}
+.button a{
+    padding:7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin:5x;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+.button .light{
+    background-color:rgb(75,75,75);
+}
+.button .primary{
+    background-color:rgb(0, 75, 75);
+}
+.darker{
+    background-color: rgb(32,32,32) !important;
 }

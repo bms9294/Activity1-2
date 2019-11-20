@@ -32,56 +32,47 @@ try{
 <html>
 <head>
     <link rel="stylesheet" href="/core/style.css" >
+    <link href="https://fonts.googleapis.com/css?family=Varela&display=swap" rel="stylesheet"> 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Videos4u - Home</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    
+    <title>Videos4u - <?php echo $title ?></title>
 </head>
 <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="/">
-                <h1 class="title">Videos4u</h1>
+    <nav class="navbar">
+        <div class=left>
+            <a href="/">
+                <h1>Videos4u</h1>
             </a>
-
-            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a href="/" class="navbar-item">
+            <div class="menu">
+                <a href="/">
                     Home
                 </a>
             </div>
-
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a href="register.html" class="button is-primary">
+        </div>
+        <div class="navbar-menu">
+            <div class="right">
+            <div id="login-menu" class="button">
+                        <a href="register.html" class="primary">
                             <strong>Sign up</strong>
                         </a>
-                        <a href="login.html" class="button is-light">
+                        <a href="login.html" class="light">
                             Log in
                         </a>
                     </div>
-                </div>
+                    <script src="/core/main.js" ></script>
             </div>
         </div>
     </nav>
-    <div class="hero-body">
-        <div class="container">
+<div class=content>
+    <div class=backdrop> 
             <div class=player>
                 <video class=mainvid controls>
                     <source src=<?php echo $path ?> >
                 </video>
             </div>
-        </div>
     </div>
+</div>
     <footer class="footer">
         <div class="content has-text-centered">
             
