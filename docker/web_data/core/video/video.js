@@ -29,7 +29,6 @@ function uploadVideo()
 	var xhrObj = new XMLHttpRequest();  
 
 
-
 	xhrObj.upload.addEventListener("loadstart", startUpload, false);  
 	xhrObj.upload.addEventListener("progress", progressFunction, false);  
 	xhrObj.upload.addEventListener("load", endUpload, false);  
@@ -51,9 +50,17 @@ function uploadVideo()
 function addVideoToDB()
 {
 	var filename = document.getElementById("filename").value;
-	$.post("core/video/finalize.php", {"title": filename, "path": jsonData.path});
+	var description = document.getElementById("description").value;
+	$.post("core/video/finalize.php", {"title": filename, "path": jsonData.path, "description": description});
+}
+
+
+function deleteVideo()
+{
+	$.post("core/video/deleteVideo.php", {"videoID": "2"});
 }
 
 
 document.getElementById("uploadBtn").addEventListener("click", uploadVideo);
 document.getElementById("finalizeBtn").addEventListener("click", addVideoToDB);
+document.getElementById("deleteButton").addEventListener("click", deleteVideo);
