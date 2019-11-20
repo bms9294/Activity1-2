@@ -8,7 +8,7 @@ return array(
 					lastSeen INT, 
 					PRIMARY KEY(sessionID))",
 	"addSession" => "INSERT INTO session VALUES(NULL, ?,(SELECT userid FROM users WHERE email=? OR username=?),?,?)",
-	"idFromSession" => "SELECT userID FROM session WHERE sessionID=?",
+	"idFromSession" => "SELECT userID FROM session WHERE token=?",
 	"getSession" => "SELECT lastSeen FROM session WHERE token=?",
 	"refresh" => "UPDATE session SET lastSeen=? WHERE token=?",
 	"expired" => "DELETE FROM session WHERE token=?"

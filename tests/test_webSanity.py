@@ -8,7 +8,7 @@ import requests;
 
 #The testing class for the HelloWorld WebServer
 #Address and port of the WebSite
-ADDRESS = "http://localhost:80/core/setup/setup.php";
+ADDRESS = "https://localhost/core/setup/setup.php";
 
 try:
     page = requests.get(ADDRESS,timeout=0.5);

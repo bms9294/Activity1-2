@@ -7,6 +7,7 @@ include("../mysql/client.php");
 $tables = array(//Cooresponds to the php files in /core/mysql/tables
 	"testTable",
 	"session",
+	"video",
 	"users"
 );
 

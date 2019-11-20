@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html>
-        <script src="./core/jquery/jquery.js"></script>
+        <script src="core/jquery/jquery.js"></script>
         <meta charset="utf-8">
 <body>
 
-<form action="/core/video/videoupload.php" method="POST" enctype="multipart/form-data"  id=videoupload>
-    <input type="text" name="title" id="title" placeholder="video title"><br>
-    <br>
-    <input type="file" id="file" name="file">
-    <br>
-    <br>
-    <input type="submit" name="submit" id="upload" value="upload">
-    <br>
-    <br>
-    <input type="submit" name="finalize" value="finalize">
- 
-</form>
+<input type="file" id="fileUpload">
+<br>
+<br>
+<input type="text" placeholder="title" id="filename">
+<br>
+<br>
+<button id="uploadBtn">Upload</button>
+<br>
+<br>
+<button id="finalizeBtn">Finalize</button>
+<br>
+<br>
+<progress id="progressBar" value="0" max="100">  
+</progress>  
 
 </body>
-<script type="text/javascript" src="/core/video/video.js"></script>
+<script type="text/javascript" src="core/video/video.js"></script>
 </html>

@@ -1,4 +1,34 @@
-﻿<!DOCTYPE html>
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+include_once("./core/mysql/client.php");
+if(!isset($_GET["video"])){
+    header("Location: /");
+}
+
+$video = $_GET["video"];
+$mysql = new MySqlClient("tables/video.php");
+try{
+    $mysql->connect();
+    $mysql->prepare("getVideo");
+    $row = ($mysql->exec([$video]))->fetch();
+    if($row){
+        $title = $row['title'];
+        $upload_date = $row['upload_date'];
+        $user = $row['username'];
+        $path = $row['pathToVideo'];
+    }else{
+        header("Location: /");
+    }
+
+}catch(\PDOException $e){
+
+}
+
+
+?>
 <html>
 <head>
     <link rel="stylesheet" href="/core/style.css" >
@@ -6,7 +36,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Videos4u - Home</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-    <!-- <link rel="stylesheet" type="text/css" href="index.css" /> -->
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 <body>
@@ -46,21 +75,10 @@
     </nav>
     <div class="hero-body">
         <div class="container">
-            <div class="tabs is-large">
-                <ul>
-                    <li class="is-active"><a>Videos</a></li>
-                    <li><a>My Videos</a></li>
-                </ul>
-            </div>
-            <div class=content>
-                <div class=videoentry>
-                    <a class=title href="/">Test</a>
-                    <a class=description>Desc</a>
-
-                    <div class=thumbnailcont>
-                            <img class=thumbnail src="https://d3qdvvkm3r2z1i.cloudfront.net/media/catalog/product/cache/1/image/1800x/6b9ffbf72458f4fd2d3cb995d92e8889/n/o/nope_newthumb.png">
-                    </div>
-                </div>
+            <div class=player>
+                <video class=mainvid controls>
+                    <source src=<?php echo $path ?> >
+                </video>
             </div>
         </div>
     </div>
