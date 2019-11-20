@@ -35,7 +35,7 @@ try {
     $newFilePath = $targetDir.$userID."-".$hashedFilename.".".$fileType;
 
     //Allowed file types
-    $allowed_types = ["mp4","webm","m4v"];
+    $allowed_types = ["mp4","webm","ogg"];
 
     //Check for proper file type and file size (under 2GB);
     if (in_array($fileType, $allowed_types))
@@ -47,17 +47,10 @@ try {
         $validFileType = false;
     }
     
-    if($fileSize < 2147483648) {
-        $validFileSize = true;
-    }
-    else
-    {
-        $validFileSize = false;
-    }
 
 
     //If file is valid type and file size upload the file to the target directory
-    if ($validFileSize && $validFileType)
+    if ($validFileType)
     {
 
         // $ffmpeg = FFMpeg\FFMpeg::create();
