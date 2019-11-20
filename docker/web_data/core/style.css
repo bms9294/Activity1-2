@@ -1,0 +1,45 @@
+html{
+    background-color:rgb(32,32,32);
+    color:rgb(200,200,200);
+}
+.content{
+    text-align: center;
+}
+.videoentry{
+    text-align: left;
+    height:auto;
+    width:auto;
+    min-width: 300px;
+    background-color: deepskyblue;
+    border-radius: 10px;
+    padding: 10px;
+    display: inline-block;
+    margin: 15px;
+}
+.description{
+    display: block;
+    color: black;
+}
+.videoentry hr{
+    margin: 5px;
+    border:1px solid black;
+}
+.thumbnailcont{
+    margin-top: 15px;
+    background-color: black;
+    width:100%;
+    max-height: 200px;
+    text-align: center;
+    border-radius: 5px;
+}
+.thumbnail{
+    object-fit: scale-down;
+    max-height: 200px;;
+}
+.player{
+    text-align: center;
+    width:100%;
+}
+.mainvid{
+    max-height:200px;
+}

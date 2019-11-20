@@ -1,0 +1,1 @@
+CREATE DATABASE IF NOT EXISTS videos4u_web;

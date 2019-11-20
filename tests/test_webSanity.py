@@ -3,30 +3,33 @@
 # Meant to test the "Hello World" web server for connectivity and proper content.
 
 
-import pytest;
-import requests;
+import pytest
+import requests
 
 #The testing class for the HelloWorld WebServer
 #Address and port of the WebSite
-ADDRESS = "http://localhost:80";
+ADDRESS = "https://localhost/core/setup/setup.php"
+CERTFILE = "../docker/cert/videos4u.crt"
 
 try:
-    page = requests.get(ADDRESS,timeout=0.5);
+    page = requests.get(ADDRESS,verify=False)
 except:
-    page = None;
+    page = None
 
 
 # Make sure the returned status code is 200 for success.
 def test_Code():
-    assert page.status_code == 200;
+    assert page.status_code == 200
 
 # Make sure the content of the site is HTML
 def test_Header():
     #print(page.headers)
-    assert page.headers['content-type'] == 'text/html';
+    assert 'text/html' in page.headers['content-type']
 
 # Make sure the page is displaying the correct content.
 def test_Content():
     #print(page.text);
-    assert "<h2>Hello World</h2>" in page.text;
-        
+    assert "testTable: true<br />session: true<br />video: true<br />users: true<br />" in page.text
+
+
+#print(page)
