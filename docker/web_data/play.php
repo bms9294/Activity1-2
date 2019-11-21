@@ -60,7 +60,7 @@ try{
                             Log in
                         </a>
                     </div>
-                    <script src="/core/main.js" ></script>
+                    <script src="/core/head.js" ></script>
             </div>
         </div>
     </nav>
