@@ -27,6 +27,6 @@ else
     -subj "/C=US/''=Denial/L=''/O=Dis/CN=videos4u" \
     -keyout /var/www/ssl/videos4u.key  -out /var/www/ssl/videos4u.crt
 fi
-
-
+sed "s/'username' => .*/'username' => $MYSQL_USER/" /var/www/html/core/mysql/config.php
+sed "s/'password' => .*/'password' => $MYSQL_PASSWORD/" /var/www/html/core/mysql/config.php
 /./usr/bin/supervisord -n

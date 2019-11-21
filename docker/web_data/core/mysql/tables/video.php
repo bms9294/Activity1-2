@@ -15,8 +15,10 @@ return array(
     "updateTitleSummary" => "UPDATE videos SET title=?, summary=? WHERE pathToVideo=?",
     "getAllVideos" => "SELECT videoID, title FROM videos",
     "getUserVideos" => "SELECT videoID, title FROM videos WHERE userID=?",
-    
+    "getAllVideos" => "SELECT videoID,thumbnail,title FROM videos",
     "getVideo" => "SELECT videos.title, videos.pathToVideo, videos.upload_date, users.username 
-    FROM videos INNER JOIN users ON videos.userID=users.userID AND videos.videoID=?"
+    FROM videos INNER JOIN users ON videos.userID=users.userID AND videos.videoID=?",
+    "getVideoList" => "SELECT * FROM videos limit ?,?",
+    "getVideosOfUser" => "SELECT * FROM videos WHERE userID=(SELECT userID FROM session WHERE token=?) limit ?,?"
     
 );

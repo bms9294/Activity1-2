@@ -14,7 +14,8 @@ function challengePass($user,$pass){
 			$token = newSession($user);
 			if($token != false){
 				ob_start();
-				setcookie("session",$token,time()+(60*60*4), "/", $_SERVER['HTTP_HOST'], false, true);
+				setcookie("session",$token,time()+(60*60*4), "/", $_SERVER['HTTP_HOST'], true, true);
+				setcookie("logged-in",true,time()+(60*60*4), "/", $_SERVER['HTTP_HOST'], true, false);
 				return '{"success": true}';
 			}else {
 				$code = newSession($user);
