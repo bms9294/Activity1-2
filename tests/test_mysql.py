@@ -4,8 +4,8 @@ import pytest
 def mysql_connect():
     conn=pymysql.connect(host='127.0.0.1',
                          port=33060,
-                         user='root',
-                         password='cBc9029U',
+                         user='videos4u',
+                         password='olah6aeQuie7Oishol4Eej6oofee3aeg',
                          database='videos4u_web')
     query = conn.cursor()
     return query
