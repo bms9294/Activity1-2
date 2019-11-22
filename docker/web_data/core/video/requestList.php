@@ -1,11 +1,16 @@
 <?php
 include_once("../mysql/client.php");
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
 $whitelist = array(
     '127.0.0.1',
     '::1'
 );
-if(in_array($_SERVER['HTTP_HOST'], $whitelist)){
+//if(in_array($_SERVER['HTTP_HOST'], $whitelist)){
     if(isset($_POST['start']) && isset($_POST['count'])){
         $mysql = new MySqlClient("tables/video.php");
         try{
@@ -25,5 +30,5 @@ if(in_array($_SERVER['HTTP_HOST'], $whitelist)){
         }catch(PDOException $e){
             echo $e-getMessage();
         }
-    }
+//    }
 }

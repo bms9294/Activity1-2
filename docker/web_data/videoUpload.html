@@ -32,16 +32,30 @@
                 <script src="/core/head.js" ></script>
         </nav>
         <div id=uploadForm>
-                <input type="text" placeholder="Enter Video Title" id="filename">
+                <input type="text" placeholder="Enter URL" id=downloadURL>
+                <br>
+                <br>
+                <button id=downloadBtn class=downloadBtn>Download</button>
+                <label id=downloadStatus></label>
+                <br>
+                <h1 id=orLabel>OR</h1>
+                <br>
                 <input type="file" id="fileUpload">
                 <label for="fileUpload">Choose a File</label>
                 <label id=uploadFilename></label>
                 <br>
-                <button class="uploadBtn" id="uploadBtn">Upload</button>
+                <div class="up_prog">
+                    <button class="uploadBtn" id="uploadBtn">Upload</button>
+                    <progress class="progressBar" id="progressBar" value="0" max="100"></progress>
+                    <label id=percentageCalc></label> 
+                </div>
                 <br>
-                <progress class="progressBar" id="progressBar" value="0" max="100"></progress> 
                 <br>
-                <textarea type="text" placeholder="Enter Video Description" id="description"></textarea>
+                <div>
+                    <input type="text" placeholder="Enter Video Title" id="filename">
+                    <br>
+                    <textarea type="text" placeholder="Enter Video Description" id="description"></textarea>
+                </div>
                 <br>
                 <button class="finalizeBtn" id="finalizeBtn">Finalize</button>
         </div>

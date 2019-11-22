@@ -8,11 +8,33 @@ html{
 body{
     margin:0;
 }
+#logout{
+    cursor: pointer;
+}
 .content{
     text-align: center;
     width: 100%;
     margin:0;
     transition: 0.5s;
+}
+#confirm{
+    cursor: pointer;
+}
+#exterminate{
+    cursor: pointer;
+}
+.navinput{
+    padding: 5px;
+    height: 35px;
+    border-radius: 8px;
+    width: 100px;
+    font-size: large;
+    background-color: rgb(100,100,100);
+    color: rgb(200,200,200);
+    border: 2px solid rgb(50,50,50);
+}
+.subby{
+    color:rgb(200,200,200);
 }
 .videoentry{
     height:auto;
@@ -25,9 +47,6 @@ body{
     margin: 15px;
     text-decoration: none;
     transition: 0.5s;
-}
-.selector{
-
 }
 .selector h2{
     display: inline-block;

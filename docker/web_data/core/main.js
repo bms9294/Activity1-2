@@ -7,15 +7,19 @@ function loadList(user=false){
         var result = JSON.parse(data);
         result.forEach(element => {
             if(element.thumbnail == "/")element.thumbnail = "/thumbnails/default.jpg";
-            document.getElementById("videolist").innerHTML += " \
+            var ht = " \
             <a href=/play.php?video="+element.videoID+" class=videoentry > \
                         <span> \
                             <h2>"+element.title+"</h2> \
-                            <p class=description>Desc</p> \
+                            <p class=description>"+element.summary+"</p> \
                         </span> \
                         <img class=thumbnail src="+element.thumbnail+" > \
-                    </a>"
-            ;
+                    ";
+            if(document.getElementById("myvids").classList == "active"){
+                ht += "<sub class=subby>Video ID: "+element.videoID+"</sub>";
+            }
+            ht += "</a>";
+            document.getElementById("videolist").innerHTML += ht;
             currentlyloaded++;
         });
     });
