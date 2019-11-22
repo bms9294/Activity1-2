@@ -1,4 +1,7 @@
 var jsonData;
+document.getElementById("uploadBtn").disabled = true;
+document.getElementById("finalizeBtn").disabled = true;
+
 
 function progressFunction(evt){  
 	var progressBar = document.getElementById("progressBar");  
@@ -60,7 +63,42 @@ function deleteVideo()
 	$.post("core/video/deleteVideo.php", {"videoID": "2"});
 }
 
+function getVideoTitle()
+{
+	var fullPath = document.getElementById("fileUpload").value;
+	var title = document.getElementById("filename").value;
+	if (fullPath && title)
+	{
+		var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
+		var filename = fullPath.substring(startIndex);
+		if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+			filename = filename.substring(1);
+		}
+		document.getElementById("uploadFilename").textContent = filename;
+	}
+
+
+}
+
+function checkifUploadValid()
+{
+	var title = document.getElementById("filename").value;
+	var path = document.getElementById("fileUpload").value;
+	if (((title != null) && (path != "")))
+	{
+		document.getElementById("uploadBtn").disabled = false;
+		$('.uploadBtn').toggleClass('uploaded');
+
+		document.getElementById("finalizeBtn").disabled = false;
+		$('.finalizeBtn').toggleClass('finalized');
+
+	}
+}
+
 
 document.getElementById("uploadBtn").addEventListener("click", uploadVideo);
 document.getElementById("finalizeBtn").addEventListener("click", addVideoToDB);
-document.getElementById("deleteButton").addEventListener("click", deleteVideo);
+//document.getElementById("deleteButton").addEventListener("click", deleteVideo);
+$("#fileUpload").on("change", getVideoTitle);
+$("#filename").on("change", checkifUploadValid);
+$("#fileUpload").on("change", checkifUploadValid);

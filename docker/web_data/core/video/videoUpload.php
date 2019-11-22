@@ -22,8 +22,6 @@ try {
     $row = ($mysql->exec([$token]))->fetch();
     $userID = $row['userID'];
 
-
-
     // Create Paths to target directory and new file 
     // obtain the file type and size 
     $targetDir = "/video/";

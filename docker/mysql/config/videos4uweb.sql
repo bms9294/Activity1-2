@@ -15,16 +15,17 @@ CREATE TABLE IF NOT EXISTS videos(
         userID CHAR(32) NOT NULL,
         pathToVideo VARCHAR(255) NOT NULL,
         title VARCHAR(255),
+        summary VARCHAR(1000),
         upload_date INT NOT NULL,
         thumbnail VARCHAR(255) NOT NULL,
         PRIMARY KEY(videoID));
 
 CREATE TABLE IF NOT EXISTS users(
-		userid CHAR(32) UNIQUE NOT NULL,
-		username VARCHAR(64) UNIQUE NOT NULL,
-		passhash VARCHAR(90) NOT NULL,
-		email VARCHAR(255) UNIQUE,
-		firstname VARCHAR(64),
-		surname VARCHAR(64),
-		registered INT NOT NULL,
-		PRIMARY KEY(userid));
+        userid CHAR(32) UNIQUE NOT NULL,
+        username VARCHAR(64) UNIQUE NOT NULL,
+        passhash VARCHAR(90) NOT NULL,
+        email VARCHAR(255) UNIQUE,
+        firstname VARCHAR(64),
+        surname VARCHAR(64),
+        registered INT NOT NULL,
+        PRIMARY KEY(userid));
