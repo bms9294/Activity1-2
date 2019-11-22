@@ -26,7 +26,7 @@ install:
   
 #Wait for images to finish spining up.
 before_script:
-    - sleep 10
+    - sleep 25
 #Test scripts to run
 script:
   - pytest

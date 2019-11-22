@@ -29,13 +29,23 @@ try {
     $newFilePath = $targetDir.$userID."-".$hashedFilename.".".$fileType;
     $newFilePath = "../../video/".$newFilePath;
 
-    echo "curl --insecure -o $newFilePath $url";
 
     exec("curl --insecure -o $newFilePath $url", $output, $return);
 
     if($return == 0)
     {
-        echo '{"success": true}';
+        $mysql = new MySqlClient("tables/video.php");
+        $mysql->connect();
+        $mysql->prepare("addVideo");
+        if ($mysql->exec([NULL, $userID, $newFilePath, NULL, NULL, time(), "/"]))
+        {
+            echo '{"success": true, "path": "'.$newFilePath.'"}';
+        }
+        else
+        {
+            echo '{"success": false}';
+        }
+
     }
     else
     {

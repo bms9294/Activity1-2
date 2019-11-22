@@ -72,10 +72,6 @@ function addVideoToDB()
 }
 
 
-function deleteVideo()
-{
-	$.post("core/video/deleteVideo.php", {"videoID": "2"});
-}
 
 function getVideoTitle()
 {
@@ -128,10 +124,11 @@ function downloadVideo()
 	var url = document.getElementById("downloadURL").value;
 	var title = document.getElementById("filename").value;
 	$.post("core/video/downloadVideo.php", {"url": url, "title": title}).done(function (data) {
-		var result = JSON.parse(data);
-		if (result.success)
+		jsonData = JSON.parse(data);
+		if (jsonData.success)
 		{
 			document.getElementById("downloadStatus").textContent = "Download to server complete!";
+			document.getElementById("finalizeBtn").disabled = false;	
 		}
 		else
 		{

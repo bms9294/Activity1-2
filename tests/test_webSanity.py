@@ -9,7 +9,6 @@ import requests
 #The testing class for the HelloWorld WebServer
 #Address and port of the WebSite
 ADDRESS = "https://localhost/core/login/login.php"
-CERTFILE = "../docker/cert/videos4u.crt"
 
 try:
     page = requests.get(ADDRESS,verify=False)
