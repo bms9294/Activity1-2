@@ -20,12 +20,10 @@ def test_classicSQLInjection():
     inputData = {'filename': 'VideoTest'}
     try:
         page = requests.post("https://localhost/core/video/videoUpload.php", files=file, data=inputData, cookies={"session": session}, verify=False)
+        data = page.json()
+        videoPath = data['path']
     except:
         page = None    
-    data = page.json()
-    global videoPath
-    videoPath = data['path']
-    
     assert page != None
     assert '{"success": true' in page.text
 
