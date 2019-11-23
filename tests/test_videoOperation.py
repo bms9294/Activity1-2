@@ -3,6 +3,7 @@ import requests.utils
 import pytest
 import pymysql
 import urllib3
+import json
 urllib3.disable_warnings()
 
 session = ""
@@ -40,7 +41,7 @@ def test_videoOperation():
     inputData = {'filename': 'Video Test'}
     try:
         page = requests.post("https://localhost/core/video/videoUpload.php", files=file, data=inputData, cookies={"session": session}, verify=False)
-        data = page.json()
+        data = json.loads(page.text)
         videoPath = data['path']
     except:
         page = None    

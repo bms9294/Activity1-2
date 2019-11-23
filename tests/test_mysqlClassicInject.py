@@ -2,9 +2,9 @@ import requests
 import requests.utils
 import pytest
 import pymysql
+import json
 import urllib3
 urllib3.disable_warnings()
-
 
 def test_classicSQLInjection():
     data = {'username': 'jimstark', 'password': 'password1'}
@@ -20,10 +20,10 @@ def test_classicSQLInjection():
     inputData = {'filename': 'VideoTest'}
     try:
         page = requests.post("https://localhost/core/video/videoUpload.php", files=file, data=inputData, cookies={"session": session}, verify=False)
-        data = page.json()
+        data = json.loads(page.text)
         videoPath = data['path']
     except:
-        page = None    
+        page = None
     assert page != None
     assert '{"success": true' in page.text
 
