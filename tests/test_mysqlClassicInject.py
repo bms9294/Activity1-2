@@ -19,13 +19,12 @@ def test_classicSQLInjection():
     file = {'file': open("tests/VideoTest.mp4", 'rb')}
     inputData = {'filename': 'VideoTest'}
     try:
-        page = requests.post("https://localhost/core/video/videoUpload.php", files=file, data=inputData, cookies={"session": session}, verify=False)
+        page = requests.post("https://localhost/core/video/videoUpload.php", files=file, data=inputData, cookies={"session": session}, verify=False).json()
     except:
         page = None
-    data = json.loads(page.text)
-    videoPath = data['path']
+    videoPath = page['path']
     assert page != None
-    assert '{"success": true' in page.text
+    assert page['success'] == True
 
     inputData = {'title': '(SELECT passhash FROM users WHERE username=\"jimstark\")', 'path': videoPath, 'description': 'This is a test video upload'}
     try:
