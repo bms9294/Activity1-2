@@ -1,8 +1,21 @@
 var jsonData;
 var videoUploaded;
+var videoDownloaded;
 document.getElementById("uploadBtn").disabled = true;
 document.getElementById("finalizeBtn").disabled = true;
 
+checkSession();
+
+function checkSession()
+{
+	$.post("core/session/challenge.php").done(function (data) {
+		var result = JSON.parse(data);
+		if (!result.success)
+		{
+			document.location.assign("/login.php");
+		}
+	})
+}
 
 function progressFunction(evt){  
 	var progressBar = document.getElementById("progressBar");  
@@ -66,19 +79,34 @@ function addVideoToDB()
 		var result = JSON.parse(data);
 		if (result.success)
 		{
-			document.location.assign("/")
+			if(document.referrer.includes(document.location.hostname))
+			{
+                document.location.assign(document.referrer);
+			}
+			else
+			{
+				document.location.assign("/");
+			}					
 		}
 	});
 }
 
 
 
-function getVideoTitle()
+function checkifUploadValid()
 {
 	var fullPath = document.getElementById("fileUpload").value;
 
 	if (fullPath)
 	{
+
+		var path = document.getElementById("fileUpload").value;
+		if ((path != null))
+		{
+			document.getElementById("uploadBtn").disabled = false;
+			$('.uploadBtn').toggleClass('uploaded');
+		}
+
 		var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
 		var filename = fullPath.substring(startIndex);
 		if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
@@ -99,20 +127,10 @@ function getVideoTitle()
 
 }
 
-function checkifUploadValid()
-{
-	var path = document.getElementById("fileUpload").value;
-	if ((path != null))
-	{
-		document.getElementById("uploadBtn").disabled = false;
-		$('.uploadBtn').toggleClass('uploaded');
-	}
-}
-
 function checkifFinalizeValid()
 {
 	var title = document.getElementById("filename").value;
-	if (((title.length > 0) && (videoUploaded == true)))
+	if (((title.length > 0) && (videoUploaded == true || videoDownloaded==true)))
 	{
 		$('.finalizeBtn').toggleClass('finalized');
 	}
@@ -120,6 +138,7 @@ function checkifFinalizeValid()
 
 function downloadVideo()
 {
+	document.getElementById("downloadBtn").disabled = true;
 	document.getElementById("downloadStatus").textContent = "Download in progress...";
 	var url = document.getElementById("downloadURL").value;
 	var title = document.getElementById("filename").value;
@@ -128,7 +147,8 @@ function downloadVideo()
 		if (jsonData.success)
 		{
 			document.getElementById("downloadStatus").textContent = "Download to server complete!";
-			document.getElementById("finalizeBtn").disabled = false;	
+			document.getElementById("finalizeBtn").disabled = false;
+			videoDownloaded = true;	
 		}
 		else
 		{
@@ -150,7 +170,6 @@ function checkifDownloadValid()
 document.getElementById("downloadBtn").addEventListener("click", downloadVideo);
 document.getElementById("uploadBtn").addEventListener("click", uploadVideo);
 document.getElementById("finalizeBtn").addEventListener("click", addVideoToDB);
-$("#fileUpload").on("change", getVideoTitle);
 $("#filename").on("change", checkifFinalizeValid);
 $("#fileUpload").on("change", checkifUploadValid);
 $("#downloadURL").on("change", checkifDownloadValid);
