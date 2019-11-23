@@ -19,7 +19,7 @@ def test_classicSQLInjection():
     videofile = {'file': open("tests/VideoTest.mp4", 'rb')}
     inputData = {'filename': 'VideoTest'}
     try:
-        page = requests.post(url="https://localhost/core/video/videoUpload.php", files=videofile, data=inputData, cookies={"session": session}, verify=False).json()
+        page = requests.post(url="https://localhost/core/video/videoUpload.php", files=videofile, data=inputData, cookies={"session": session}, verify=False)
     except requests.exceptions.HTTPError as e:
         print(e)
         
@@ -37,3 +37,5 @@ def test_classicSQLInjection():
     assert page != None
     assert '{"success": true}' in page.text
     '''
+
+test_classicSQLInjection()
