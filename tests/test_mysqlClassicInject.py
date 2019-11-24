@@ -20,14 +20,12 @@ def test_classicSQLInjection():
     inputData = {'filename': 'VideoTest'}
     try:
         page = requests.post(url="https://localhost/core/video/videoUpload.php", files=videofile, data=inputData, cookies={"session": session}, verify=False)
-    except requests.exceptions.HTTPError as e:
-        print(e)
-        
-
-    '''
-    videoPath = page['path']
+    except:
+        page = None
+    result = json.loads(page.text)
+    videoPath = result['path']
     assert page != None
-    assert page['success'] == True
+    assert result['success'] == True
 
     inputData = {'title': '(SELECT passhash FROM users WHERE username=\"jimstark\")', 'path': videoPath, 'description': 'This is a test video upload'}
     try:
@@ -36,6 +34,5 @@ def test_classicSQLInjection():
         page = None
     assert page != None
     assert '{"success": true}' in page.text
-    '''
 
-#test_classicSQLInjection
+test_classicSQLInjection()
