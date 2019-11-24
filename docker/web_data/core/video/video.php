@@ -2,7 +2,7 @@
 
 function getVideos($userid=false)
 {
-    $mysql = new MySqlClient("tables/videos.php");
+    $mysql = new MySqlClient("tables/video.php");
     try 
     {
         $mysql->connect();
@@ -32,7 +32,7 @@ function getVideos($userid=false)
 
 function getVideo($videoID)
 {
-    $mysql = new MySqlClient("tables/videos.php");
+    $mysql = new MySqlClient("tables/video.php");
     try
     {
         $mysql->connect();
@@ -52,7 +52,7 @@ function getVideo($videoID)
 
 function addVideo($video)
 {
-    $mysql = new MySqlClient("tables/videos.php");
+    $mysql = new MySqlClient("tables/video.php");
     try
     {
         $mysql->connect();

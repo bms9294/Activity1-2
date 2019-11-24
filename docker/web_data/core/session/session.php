@@ -1,5 +1,5 @@
 <?php 
-include_once("../mysql/client.php");
+include_once("/var/www/html/core/mysql/client.php");
 //ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
 function gen_uuid() {
     return sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
@@ -47,11 +47,13 @@ function challengeSession($user=false){
 					if(($last+(60*60*4)) > time()){
 						$mysql->prepare("refresh");
 						$mysql->exec([(time()+(60*60*4)),$token]);
+						setcookie("session",$token,time()+(60*60*4), "/", $_SERVER['HTTP_HOST'], true, true);
 						return '{"success": true}';
 					}else{
 						$mysql->prepare("expired");
 						$mysql->exec([$token]);
-						$_COOKIE['session'] = "";
+						setcookie("session",false, "/", $_SERVER['HTTP_HOST'], true, true);
+						setcookie("logged-in",false, "/");
 						return '{"success": false, "message": "Session Expired."}';
 					}
 				}else{

@@ -8,8 +8,7 @@ import requests
 
 #The testing class for the HelloWorld WebServer
 #Address and port of the WebSite
-ADDRESS = "https://localhost/core/setup/setup.php"
-CERTFILE = "../docker/cert/videos4u.crt"
+ADDRESS = "https://localhost/core/login/login.php"
 
 try:
     page = requests.get(ADDRESS,verify=False)
@@ -29,7 +28,7 @@ def test_Header():
 # Make sure the page is displaying the correct content.
 def test_Content():
     #print(page.text);
-    assert "testTable: true<br />session: true<br />video: true<br />users: true<br />" in page.text
+    assert '{"success": false, "message": "Empty Password!"}' in page.text
 
 
 #print(page)

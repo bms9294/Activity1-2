@@ -6,8 +6,6 @@ error_reporting(E_ALL);
 include("../mysql/client.php");
 $tables = array(//Cooresponds to the php files in /core/mysql/tables
 	"testTable",
-	"session",
-	"video",
 	"users"
 );
 
@@ -42,14 +40,3 @@ try{
 	
 }
 
-/*
-<?php
-if(!isset($_POST["database"]) ||
-	!isset($_POST["mysqluser"]) ||
-	!isset($_POST["mysqlpass"]) ||
-	!isset($_POST["datapath"])){
-		echo '{"success": false, "message": "Missing Value!"}';
-		return;
-}
-echo "test";
-*/

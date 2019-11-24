@@ -22,10 +22,9 @@ try {
     $row = ($mysql->exec([$token]))->fetch();
     $userID = $row['userID'];
 
-
     // Create Paths to target directory and new file 
     // obtain the file type and size 
-    $targetDir = "/video/";
+    $targetDir = "video/";
     $targetFile = $targetDir.basename($_FILES["file"]["name"]);
     $fileType = strtolower(pathinfo($targetFile,PATHINFO_EXTENSION));
     $fileSize = filesize($_FILES["file"]["tmp_name"]);
@@ -64,7 +63,7 @@ try {
             $mysql = new MySqlClient("tables/video.php");
             $mysql->connect();
             $mysql->prepare("addVideo");
-            if ($mysql->exec([NULL, $userID, $newFilePath, NULL, time(), "/"]))
+            if ($mysql->exec([NULL, $userID, $newFilePath, NULL, NULL, time(), "/"]))
             {
                 echo '{"success": true, "path": "'.$newFilePath.'"}';
             }

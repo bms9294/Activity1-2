@@ -11,7 +11,9 @@ function login(){
             } else {
                 document.location.assign("/");
             }
-        } else {
+        } 
+        else 
+        {
             document.getElementById("errormessage").innerHTML = result.message;
         }
     });
@@ -25,3 +27,4 @@ document.getElementById("username").addEventListener("keyup", function (e) {
     if (key == 13) login();
 });
 document.getElementById("submitform").addEventListener("click", login);
+
