@@ -12,7 +12,7 @@ services:
     volumes:
       - ./web_data:/var/www/html
       - ./cert:/var/www/ssl
-      - ./data:/var/www/html/video
+      #- ./data:/var/www/html/video
     environment:
       MYSQL_USER: videos4u
       MYSQL_PASSWORD: olah6aeQuie7Oishol4Eej6oofee3aeg
