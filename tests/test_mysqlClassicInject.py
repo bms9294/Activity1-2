@@ -37,4 +37,4 @@ def test_classicSQLInjection():
     assert page != None
     assert '{"success": true}' in page.text
 
-test_classicSQLInjection()
+#test_classicSQLInjection()
