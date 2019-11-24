@@ -22,7 +22,7 @@ def test_classicSQLInjection():
         page = requests.post(url="https://localhost/core/video/videoUpload.php", files=videofile, data=inputData, cookies={"session": session}, verify=False)
     except:
         page = None
-    print(page)
+    print(page.status_code)
     result = json.loads(page.text)
     videoPath = result['path']
     assert page != None
@@ -36,4 +36,4 @@ def test_classicSQLInjection():
     assert page != None
     assert '{"success": true}' in page.text
 
-#test_classicSQLInjection()
+test_classicSQLInjection()
