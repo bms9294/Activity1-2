@@ -38,4 +38,4 @@ def test_classicSQLInjection():
     assert '{"success": true}' in page.text
     '''
 
-test_classicSQLInjection()
+#test_classicSQLInjection
