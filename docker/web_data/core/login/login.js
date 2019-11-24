@@ -11,8 +11,17 @@ function login(){
             } else {
                 document.location.assign("/");
             }
-        } else {
+        } 
+        else 
+        {
+            document.getElementById("submitform").disable = true;
+            document.getElementById("submitform").removeEventListener("click", login);
+            setTimeout(timeout, 5000);
             document.getElementById("errormessage").innerHTML = result.message;
+            setTimeout(function() {
+                document.getElementById("errormessage").innerHTML = "Please wait...";
+            }, 1500);
+
         }
     });
 }
@@ -25,3 +34,11 @@ document.getElementById("username").addEventListener("keyup", function (e) {
     if (key == 13) login();
 });
 document.getElementById("submitform").addEventListener("click", login);
+
+
+function timeout()
+{
+    document.getElementById("errormessage").innerHTML = "";
+    document.getElementById("submitform").disable = false;
+    document.getElementById("submitform").addEventListener("click", login);
+}
