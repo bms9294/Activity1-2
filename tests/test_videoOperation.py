@@ -20,7 +20,7 @@ def mysql_connect():
 
 def getVideoID():
     query = mysql_connect()
-    query.execute("SELECT videoID FROM videos LIMIT 1")
+    query.execute("SELECT videoID FROM videos ORDER BY videoID DESC LIMIT 1")
     vid_id = query.fetchone()
     return vid_id[0]
 
@@ -66,4 +66,3 @@ def test_videoOperation():
         page = None
     assert page != None
     assert '{"success": true}' in page.text
-
