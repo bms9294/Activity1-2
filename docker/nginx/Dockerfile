@@ -8,9 +8,4 @@ COPY ./config/videos4u.conf /etc/nginx/sites-enabled/videos4u.conf
 COPY ./config/php.ini /usr/local/etc/php/conf.d/docker-vars.ini
 RUN chmod +x /init.sh
 RUN mkdir /ffmpeg && cd /ffmpeg && composer require php-ffmpeg/php-ffmpeg
-RUN mkdir /var/www/html/video
-RUN chown nginx /tmp/
-RUN chown nginx /var/www/html/video/
-RUN chmod -R 0775 /tmp/
-RUN chmod -R 0775 /var/www/html/video/
 CMD ["/bin/bash", "/init.sh"]
