@@ -29,4 +29,5 @@ else
 fi
 sed "s/'username' => .*/'username' => $MYSQL_USER/" /var/www/html/core/mysql/config.php
 sed "s/'password' => .*/'password' => $MYSQL_PASSWORD/" /var/www/html/core/mysql/config.php
+chgrp nginx /tmp 
 /./usr/bin/supervisord -n
