@@ -23,6 +23,7 @@ def test_classicSQLInjection():
     except:
         page = None
     print(page.status_code)
+    print(page.text)
     result = json.loads(page.text)
     videoPath = result['path']
     assert page != None
