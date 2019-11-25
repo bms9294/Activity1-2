@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <link rel="stylesheet" type="text/css" href="core/videoUpload.css">
+        <script src="core/jquery/jquery.js"></script>
+        <meta charset="utf-8">
+</head>
+<body>
+        <nav class="navbar">
+                <div class=left>
+                        <a href="/">
+                        <h1>Videos4u</h1>
+                        </a>
+                        <div class="menu">
+                        <a href="/">
+                                Home
+                        </a>
+                        </div>
+                </div>
+                <div class="navbar-menu">
+                        <div class="right">
+                                <div id="login-menu" class="button">
+                                <a href="register.html" class="primary">
+                                        <strong>Sign up</strong>
+                                </a>
+                                <a href="login.html" class="light">
+                                        Log in
+                                </a>
+                                </div>
+                        </div>
+                </div>
+                <script src="/core/head.js" ></script>
+        </nav>
+        <div id=uploadForm>
+                <input type="text" placeholder="Enter URL" id=downloadURL>
+                <br>
+                <br>
+                <button id=downloadBtn class=downloadBtn>Download</button>
+                <label id=downloadStatus></label>
+                <br>
+                <h1 id=orLabel>OR</h1>
+                <br>
+                <input type="file" id="fileUpload">
+                <label for="fileUpload">Choose a File</label>
+                <label id=uploadFilename></label>
+                <br>
+                <div class="up_prog">
+                    <button class="uploadBtn" id="uploadBtn">Upload</button>
+                    <progress class="progressBar" id="progressBar" value="0" max="100"></progress>
+                    <label id=percentageCalc></label> 
+                </div>
+                <br>
+                <br>
+                <div>
+                    <input type="text" placeholder="Enter Video Title" id="filename">
+                    <br>
+                    <textarea type="text" placeholder="Enter Video Description" id="description"></textarea>
+                </div>
+                <br>
+                <button class="finalizeBtn" id="finalizeBtn">Finalize</button>
+        </div>
+</body>
+<script type="text/javascript" src="core/video/video.js"></script>
+</html>

@@ -105,7 +105,10 @@ function postResult() {
         firstname: document.getElementById("firstname").value,
         surname: document.getElementById("lastname").value
     }).done(function (data) {
-        alert(data);
+        var result = JSON.parse(data);
+        if (result.success) {
+            document.location.assign("/login.html");
+        }
     });
 }
 document.getElementById("emailinput").onchange = emailCheck;

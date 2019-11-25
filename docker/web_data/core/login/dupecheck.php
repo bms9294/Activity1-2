@@ -1,8 +1,5 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-include("../mysql/client.php");
+include_once("../mysql/client.php");
 
 $response = array();
 
@@ -14,7 +11,7 @@ if(isset($_POST["emailcheck"])){
 }
 function checkEmail($email){
 	if($email == ""){
-		return "Email cannot be blank!";
+		return '{"success": false, "message": "Email cannot be blank!"}';
 	}else{
 		$mysql = new MySqlClient("tables/users.php");
 		try{
@@ -24,7 +21,7 @@ function checkEmail($email){
 			if(! $row){
 				return true;
 			}else{
-				return "Email already in use!";
+				return '{"success": false, "message": "Email already in use!"}';
 			}
 		}catch(\PDOException $e){
 			return $e;
@@ -33,7 +30,7 @@ function checkEmail($email){
 }
 function checkUsername($user){
 	if($user == ""){
-		return "Username cannot be blank!";
+		return '{"success": false, "message": "Username cannot be blank!"}';
 	}else{
 		$mysql = new MySqlClient("tables/users.php");
 		try{
@@ -43,7 +40,7 @@ function checkUsername($user){
 			if(! $row){
 				return true;
 			}else{
-				return "Username already in use!";
+				return '{"success": false, "message": "Username already in use!"}';
 			}
 		}catch(\PDOException $e){
 			return $e;

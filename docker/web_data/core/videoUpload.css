@@ -1,0 +1,261 @@
+html{
+    color:rgb(200,200,200);
+    margin:0;
+    overflow-x: hidden;
+    font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+body
+{
+    padding: 0px;
+    margin:  0px;
+    background-color: rgb(32,32,32);
+}
+
+.navbar{
+    padding:5px;
+    width:100%;
+    height:40px;
+    display: inline-block;
+    vertical-align: default;
+    background-color:rgb(40,40,40);
+}
+.navbar h1{
+    text-decoration: none;
+    text-emphasis: none;
+    color: rgb(200,200,200);
+    display: inline-block;
+    font-size: 28px;
+    margin:1px;
+}
+.navbar .menu{
+    display: inline-block;
+    margin-left: 25px;
+}
+.navbar a{
+    display: inline-block;
+    text-emphasis: none;
+    text-decoration: none;
+    color:rgb(200,200,200);
+    font-size: 18px;
+}
+.right{
+    float:right;
+    margin-right: 20px;
+    margin-top: 2px;
+}
+.left{
+    float: left;
+}
+
+#downloadURL
+{
+
+    padding: 5px;
+    width: 590px;
+    height: 30px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px #191919;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+#orLabel
+{
+    text-align: center;
+    width: 600px;
+    margin-bottom: 10px;
+}
+
+#uploadForm
+{
+    width: 600px;
+    height: 800px;
+    margin: 0 auto;
+    margin-top: 20px !important;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.up_prog{
+    margin-top: 25px !important;
+    width: 600px;
+    height: auto;
+    display: inline-block;
+    text-align: center;
+    margin: 0;
+
+}
+
+#percentageCalc
+{
+    margin-left: 10px;
+}
+
+#filename
+{
+    margin-bottom: 0px;
+    padding: 5px;
+    width: 590px;
+    height: 30px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px #191919;
+}
+
+#fileUpload
+{
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+#fileUpload + label {
+    background-color: rgb(0, 75, 75);
+    padding:7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    margin-left: 0px;
+    cursor: pointer;
+}
+
+#uploadFilename
+{
+    padding-left: 20px;
+}
+
+.uploadBtn
+{
+    float: left;
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+
+    background-color: rgb(0, 75, 75);
+    color: rgb(200, 200, 200);
+
+    transition:background-color 1.0s ease;
+
+    border-radius: 5px;
+    border: none;
+    margin: 0;
+}
+
+.uploaded
+{
+    background-color: #60993E;
+    color: rgb(0, 0, 0);
+}
+
+.progressBar
+{
+    width: 420px;
+    height: 25px;
+    margin-top: 5px;
+    border-radius: 15px;
+}
+
+.progressBar::-webkit-progress-bar
+{
+    border-radius: 10px;
+}
+
+.progressBar::-webkit-progress-value
+{
+    border-radius: 10px;
+}
+
+.progressBar::-moz-progress-bar
+{
+    border-radius: 10px;
+}
+
+#description
+{
+    width: 100%;
+    height: 200px;
+    margin-top: 50px;
+    padding-left: 3px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px #191919;
+    padding-top: 3px;
+}
+
+.finalizeBtn
+{
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+
+    background-color: rgb(0, 75, 75);
+    color: rgb(200, 200, 200);
+
+    transition:background-color 1.0s ease;
+
+    padding:7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    margin-top: 50px;
+    margin-left: 250px;
+    border: none;
+}
+
+.downloadBtn
+{
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+
+    background-color: rgb(0, 75, 75);
+    color: rgb(200, 200, 200);
+
+    transition:background-color 1.0s ease;
+
+    padding:7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+
+.finalized
+{
+    background-color: #60993E;
+    color: rgb(0, 0, 0);
+}
+
+
+
+#downloadStatus
+{
+    margin-left: 20px;
+}
+
+
+.button a{
+    padding:7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin:5x;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+.button .light{
+    background-color:rgb(75,75,75);
+}
+.button .primary{
+    background-color:rgb(0, 75, 75);
+}
