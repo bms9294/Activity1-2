@@ -24,7 +24,7 @@ try {
 
     // Create Paths to target directory and new file 
     // obtain the file type and size 
-    $targetDir = "video/";
+    $targetDir = "/video/";
     $targetFile = $targetDir.basename($_FILES["file"]["name"]);
     $fileType = strtolower(pathinfo($targetFile,PATHINFO_EXTENSION));
     $fileSize = filesize($_FILES["file"]["tmp_name"]);

@@ -37,6 +37,7 @@ def test_addUser():
     assert page != None
     assert '{"success": true}' in page.text
 
+
 def test_mysqlUsersExist():
     query = mysql_connect()
     query.execute("SELECT username FROM users")
